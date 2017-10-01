@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+
 <html>
 
 	<head>
@@ -15,7 +16,7 @@
 		<!-- custom css -->
 		<link rel='stylesheet' href="{% static 'simplesocial/css/master.css' %}">
 		
-	
+		<script src="https://d3js.org/d3.v4.min.js"></script>
 
 	</head>
 	
@@ -25,15 +26,15 @@
 	<nav class='navbar mynav' role='navigation' id='navbar'>
 	
 		<div class='container'>
-			<span class='bdy'>
+			
+		
+			<a style='position:relative' class='navbar-brand mynav' href="{% url 'home'%}">Graphiti<span class='bdy'>
   				<div class="icontent">
     				<div class="sun">
       					<div class="shadow"></div>
     				</div>
                 </div>
-				<span>
-		
-			<a class='navbar-brand mynav' href="{% url 'home'%}">Graphiti</a>
+				</span></a>
 			<ul class='nav navbar-nav navbar-right'>
 			{% if user.is_authenticated %}
 				<li><a href="{% url 'posts:create' %}">Post</a></li>

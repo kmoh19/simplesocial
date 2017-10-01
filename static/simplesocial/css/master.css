@@ -1,12 +1,26 @@
 body{
 	
 	margin:0;
-	overflow: hidden;
 	background-color: #413C58;
 	color:white;
 	
 	
 }
+
+.media-body{
+	
+	position:relative;
+	
+}
+
+
+/* .edits{ */
+	
+/* 	float: right; */
+	
+	
+	
+/* } */
 
 .bdy{
 
@@ -18,8 +32,9 @@ body{
 
 .icontent {
   position: absolute;
-  top: 40%;
-  left: 15%;
+  top: 48%;
+  left: 32.5%;
+  z-index: -1;
   transform: translate(-50%, -50%);
   display: block;
 }

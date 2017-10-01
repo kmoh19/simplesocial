@@ -53,7 +53,7 @@ class PostDetail(SelectRelatedMixin,generic.DetailView):
     
 class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
     
-    fields =['message','group']
+    fields =['message','custom_viz','group']
     model = models.Post
     
     def form_valid(self,form):
@@ -61,6 +61,18 @@ class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
         self.object.user= self.request.user
         self.object.save()
         return super().form_valid(form)
+    
+    
+# class CreateVizPost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
+#     
+#     fields =['message','custom_viz','group']
+#     model = models.Post
+#     
+#     def form_valid(self,form): #form validation and setting user to active user
+#         self.object =form.save(commit=False)
+#         self.object.user= self.request.user
+#         self.object.save()
+#         return super().form_valid(form)
     
     
 class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
@@ -79,4 +91,8 @@ class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
     
     
     
+class UpdatePost(LoginRequiredMixin,SelectRelatedMixin,generic.UpdateView):
+    model =models.Post
+    fields =('message','custom_viz','group')
+    select_related =('user','group')
     

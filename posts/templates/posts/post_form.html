@@ -4,6 +4,9 @@
 
 {% block post_content %}
 
+
+{% if not form.instance.pk %}
+
 <h4>Create a new Post</h4>
 
 <form id='postForm' action="{% url 'posts:create' %}" method='post'>
@@ -13,6 +16,23 @@
 	<input type='submit' value='Post' class='btn btn-primary btn-large'> </input>
 
 </form>
+
+{% else %}
+
+<h4>Update Post</h4>
+
+<form id='postForm' action="{% url 'posts:edit' pk=post.pk%}" method='post'>
+
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	<input type='submit' value='Update' class='btn btn-primary btn-large'> </input>
+
+</form>
+
+
+{% endif %}
+
+
 
 
 {% endblock %}

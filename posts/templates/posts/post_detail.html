@@ -3,10 +3,13 @@
 
 {% block post_content %}
 
-<div class='col-md-8'>
+<div class='col-md-10' >
 
 	{% include 'posts/_post.html' %}
-	
+	<div id='render_port' style='position:relative'>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	{{ post.custom_viz|safe }}
+	</div>
 </div>
 
 

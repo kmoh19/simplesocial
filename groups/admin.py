@@ -4,7 +4,7 @@ from . import models
 
 
 
-class GroupMemberInline(admin.TabularInline):
+class GroupMemberInline(admin.TabularInline):# how to display in admin page
     model=models.GroupMember
 
 admin.site.register(models.Group)

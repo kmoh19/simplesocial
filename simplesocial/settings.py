@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar', # toolbar requires staticfiles to work so enter static files before it in the list
     'bootstrap3',
+    'django_extensions',
     'accounts',
     'groups',
     'posts',
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', # remember to set this!!!
 ]
 
 ROOT_URLCONF = 'simplesocial.urls'
@@ -126,3 +129,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]
 LOGIN_REDIRECT_URL ='test'
 LOGOUT_REDIRECT_URL='thanks'
+INTERNAL_IPS=['127.0.0.1'] #ensures debug toolbar is only available on local address not when deployed and debug set to true
