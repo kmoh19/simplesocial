@@ -1,6 +1,6 @@
 <div class='post media'>
 
-	<h3>{{post.message_html|safe}}</h3>
+	{{post.message_html|safe}}
 	
 	<div class='media-body'>
 		<h5 class ='media-heading'>
@@ -16,7 +16,7 @@
 			
 			</time>
 			
-			{% if user.is_authenticated and post.user == user %}
+			{% if user.is_authenticated and post.user == user and not 'delete' in request.path%}
 			
 			<a href="{% url 'posts:edit' pk=post.pk %}" title='edit' class='btn btn-simple edits'>
 			
@@ -33,10 +33,9 @@
 			
 			
 			</a>
+	
 			{% endif %}
-			
-			
-			
+		
 		</h5>
 		
 		

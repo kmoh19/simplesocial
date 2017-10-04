@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
 from django.conf import settings
+from django import views as dj_views
 
 
 urlpatterns = [
@@ -45,6 +46,7 @@ if settings.DEBUG:
                 url(r'^thanks/$',views.ThanksPage.as_view(),name='thanks'),
                 url(r'^posts/',include('posts.urls', namespace='posts')),
                 url(r'^groups/',include('groups.urls', namespace='groups')),
-              
-                 
+                url(r'^media/(?P<path>.*)$', dj_views.static.serve, {'document_root': settings.MEDIA_ROOT,}),
+                url(r'^static/(?P<path>.*)$', dj_views.static.serve, {'document_root': settings.STATIC_ROOT,}), 
+                
                  ]

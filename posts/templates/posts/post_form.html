@@ -9,7 +9,7 @@
 
 <h4>Create a new Post</h4>
 
-<form id='postForm' action="{% url 'posts:create' %}" method='post'>
+<form id='postForm' enctype='multipart/form-data' action="{% url 'posts:create' %}" method='post'>
 
 	{% csrf_token %}
 	{% bootstrap_form form %}
@@ -21,7 +21,7 @@
 
 <h4>Update Post</h4>
 
-<form id='postForm' action="{% url 'posts:edit' pk=post.pk%}" method='post'>
+<form id='postForm' enctype='multipart/form-data' action="{% url 'posts:edit' pk=post.pk%}" method='post'>
 
 	{% csrf_token %}
 	{% bootstrap_form form %}
