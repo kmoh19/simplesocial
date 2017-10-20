@@ -3,15 +3,15 @@
 {% block pregroup %}
 
 <h1>{{group.name}}</h1>
-<h2>Member Count: {{group.members.count}}</h2>
+<h4>{{group.members.count}} member{{group.members.count|pluralize}}</h4>
 
-<div class='content'>
+<div class='content' style="position:relative;">
 
 	{% if user in group.members.all %} <!-- are the objects even the same? to compare them at this level?  i guess so member inherits from  get_user_model-->
-		<a href="{% url 'groups:leave' slug=group.slug %}" class='btn btn-lg btn-fill btn-warning'><span class='glyphicon glyphicon-remove-circle'></span>Leave</a>
+		<a style="position:absolute; right:280px;" href="{% url 'groups:leave' slug=group.slug %}" class='btn btn-md btn-fill btn-warning'><span class='glyphicon glyphicon-remove-circle'></span>Leave</a>
 		
 	{% else %}
-	<a href="{% url 'groups:join' slug=group.slug %}" class='btn btn-lg btn-fill btn-primary'><span class='glyphicon glyphicon-ok-circle'></span>Join</a>
+	<a style="position:absolute; right:280px;" href="{% url 'groups:join' slug=group.slug %}" class='btn btn-md btn-fill btn-primary'><span class='glyphicon glyphicon-ok-circle'></span>Join</a>
 	
 	{% endif %}
 		
