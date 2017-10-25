@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='home'),
     url(r'^accounts/',include('accounts.urls', namespace='accounts')),
     url(r'^accounts/',include('django.contrib.auth.urls')), # additional stuff to enable auth views connection?
-    url(r'^test/$',views.TestPage.as_view(),name='test'),
+    url(r'^welcome/$',views.TestPage.as_view(),name='welcome'),
     url(r'^thanks/$',views.ThanksPage.as_view(),name='thanks'),
     url(r'^posts/',include('posts.urls', namespace='posts')),
     url(r'^groups/',include('groups.urls', namespace='groups')),
@@ -42,7 +42,7 @@ if settings.DEBUG:
                 url(r'^$',views.HomePage.as_view(),name='home'),
                 url(r'^accounts/',include('accounts.urls', namespace='accounts')),
                 url(r'^accounts/',include('django.contrib.auth.urls')), # additional stuff to enable auth views connection?
-                url(r'^test/$',views.TestPage.as_view(),name='test'),
+                url(r'^welcome/$',views.TestPage.as_view(),name='welcome'),
                 url(r'^thanks/$',views.ThanksPage.as_view(),name='thanks'),
                 url(r'^posts/',include('posts.urls', namespace='posts')),
                 url(r'^groups/',include('groups.urls', namespace='groups')),

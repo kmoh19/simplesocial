@@ -38,9 +38,13 @@ class Post(models.Model):
     message_html = models.TextField(editable=False)
     group =models.ForeignKey(Group,related_name='posts',null=True,blank=True)
     custom_viz = models.TextField(blank=True)
+    D3_version=models.CharField(max_length=250,choices=(('/static/simplesocial/js/d3_v3.min.js','v3'),
+                                         ('/static/simplesocial/js/d3_v4.min.js','v4')),default=' ',blank=True)
     #custom_viz_html= models.TextField(editable=False,blank=True)
     
     data_file = models.FileField(upload_to=user_directory_path, blank=True)
+    js_file_1 = models.FileField(upload_to=user_directory_path, blank=True)
+    js_file_2 = models.FileField(upload_to=user_directory_path, blank=True)
     
     
     

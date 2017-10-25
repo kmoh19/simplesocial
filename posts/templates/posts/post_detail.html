@@ -1,5 +1,5 @@
 {% extends 'posts/post_base.html' %}
-
+{% load mymedia %}
 
 {% block post_content %}
 
@@ -7,8 +7,10 @@
 
 	{% include 'posts/_post.html' %}
 	<div id='render_port' style='position:relative'>
-	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<script src="{{ post.D3_version }}"></script>
+	<script src="{% serve_js 1 %}"></script>
+	<script src="{% serve_js 2 %}"></script>
 	{{ post.custom_viz|safe }}
 	</div>
 </div>

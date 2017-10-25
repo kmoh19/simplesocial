@@ -1,10 +1,30 @@
 {% extends 'base.html' %}
 
-
+{% load myslider %}
 
 {% block content %}
 
-	<h1> Welcome to Graphiti! </h1>
+	<h1 id='welcome'> Welcome to Graphiti! </h1>
+<br>
+<br>
+<div id="slider">
+ <a href="#" class="control_next"> &gt </a>
+  <a href="###" class="control_prev"> &lt </a>
+  
+  <ul>
+  {% whats_new as new_list %}
+  {% for item in new_list %}
+    <li><a style='color:white;' href="{% url 'posts:single' username=item.user.username pk=item.pk %}">{{item.message_html|safe}}</a></li>
+   {% endfor %} 
+  </ul>  
+</div>
+
+<!--<div class="slider_option">
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox">Autoplay Slider</label>
+ </div>-->
+
+
 
 {% endblock %}
 

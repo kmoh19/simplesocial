@@ -53,7 +53,7 @@ class PostDetail(SelectRelatedMixin,generic.DetailView):
     
 class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
     
-    fields =['message','custom_viz','data_file','group']
+    fields =['message','custom_viz','D3_version','js_file_1','js_file_2','data_file','group']
     model = models.Post
     
     def form_valid(self,form):
@@ -93,6 +93,6 @@ class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
     
 class UpdatePost(LoginRequiredMixin,SelectRelatedMixin,generic.UpdateView):
     model =models.Post
-    fields =('message','custom_viz','data_file','group')
+    fields =('message','custom_viz','D3_version','data_file','js_file_1','js_file_2','group')
     select_related =('user','group')
     
