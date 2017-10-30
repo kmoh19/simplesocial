@@ -9,8 +9,8 @@
 	
 	<div class='card card-with-shadow'> 
 		<h5 class ='title'>Your Groups</h5>
-		<ul class='list-unstyled'>
 		
+		<ul class='list-inline'>
 			{% user_group_getter as mylist %}
 			{% for member_group in mylist %} <!-- refer to groups model.py file ......register template.Library() allows acces to the user_groups related name of GroupMember class-->
 			
@@ -29,7 +29,7 @@
 <div class='card card-with-shadow'>
 		<h5 class='title'>All Groups</h5>
 		
-			<ul class='list-ustyled'>
+			<ul class='list-inline'>
 				{% all_group_getter as allgroups %}
 				{% for other_group in allgroups %}
 			<li class='group li-with-bullet'><a href="{% url 'groups:single' slug=other_group.slug %}">{{other_group.name}}</a></li>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
-from django.http import Http404
+from django.http import Http404,HttpResponse
 from django.views import generic
 from braces.views import SelectRelatedMixin
 from . import models
@@ -95,4 +95,11 @@ class UpdatePost(LoginRequiredMixin,SelectRelatedMixin,generic.UpdateView):
     model =models.Post
     fields =('message','custom_viz','D3_version','data_file','js_file_1','js_file_2','group')
     select_related =('user','group')
+   
     
+    def get(self, request, *args, **kwargs):
+        upd_obj=generic.UpdateView.get(self, request, *args, **kwargs)
+        if request.user.id==upd_obj.context_data['post'].user.id:
+            return generic.UpdateView.get(self, request, *args, **kwargs)#generic.UpdateView is same as calling super()
+        else:
+            return HttpResponse('<h1>no way Jose!</h1>')

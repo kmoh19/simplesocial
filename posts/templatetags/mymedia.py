@@ -10,7 +10,7 @@ def serve_js(context,option):
     
     post_obj=models.Post.objects.filter(pk=context['post'].pk)[0]
     
-    print('#####inside#####',option,post_obj.js_file_1.name)
+    #print('#####inside#####',option,post_obj.js_file_1.name)
     
     if option == 1:
         result=MEDIA_URL+post_obj.js_file_1.name
